@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-main: #0c0f17;
+    --bg-surface: #151b28;
+    --bg-card: #1c2436;
+    --spider-red: #e62429;
+    --spider-red-glow: #ff3b3f;
+    --spider-blue: #1c64f2;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: #2a3449;
+    --font-comic: 'Bangers', cursive;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+.cart-icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.Productos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 10px 20px;
+    background-color: var(--bg-surface);
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #fefefe;
+}
+
+.grid-imagen {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 2/2.5;
+}
+
+.grid-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.Nombre_Producto {
+    text-align: center;
+    padding: 10px 20px;
+    color: var(--text-main);
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+}
+
+h3.precio {
+    color: var(--text-main);
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+figcaption a {
+    text-decoration: none;
+}
+
+.precio-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.agregar-btn {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-main);
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+.agregar-btn img {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+.agregar-btn:hover {
+    background-color: #616161;
+}
+
+figcaption {
+    background-color: var(--bg-surface);
+    color: #000000;
+    padding: 5px;
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+    .Productos-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .Productos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .Productos-grid {
+        grid-template-columns: 1fr;
+    }
+}
