@@ -1,0 +1,438 @@
+/* --- Paleta Spider-Man Optimizada --- */
+:root {
+  --bg-main: #0c0f17;         /* Fondo oscuro azulado profundo */
+  --bg-surface: #151b28;      /* Fondo de tarjetas y secciones secundarias */
+  --bg-card: #1c2436;         /* Tarjetas de información */
+  
+  --spider-red: #e62429;      /* Rojo Marvel principal */
+  --spider-red-glow: #ff3b3f; /* Hover y detalles luminosos */
+  --spider-blue: #1c64f2;     /* Azul de acento */
+  
+  --text-main: #f8fafc;       /* Texto principal blanco nítido */
+  --text-muted: #94a3b8;      /* Texto secundario y descripciones */
+  --border-color: #2a3449;    /* Bordes sutiles y elegantes */
+  
+  --font-comic: 'Bangers', cursive;
+  --font-body: 'Montserrat', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --- Navbar --- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background-color: rgba(12, 15, 23, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.logo {
+  font-family: var(--font-comic);
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: var(--text-main);
+}
+
+.spidey-text {
+  color: var(--spider-red);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--spider-red-glow);
+}
+
+/* --- Hero Section Horizontal --- */
+.hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  background-image: url('BND.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 25%;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    rgba(12, 15, 23, 0.96) 0%, 
+    rgba(12, 15, 23, 0.78) 50%, 
+    rgba(12, 15, 23, 0.35) 100%
+  );
+  z-index: 1;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.hero-content {
+  max-width: 620px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: rgba(230, 36, 41, 0.15);
+  color: var(--spider-red-glow);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 18px;
+  border: 1px solid var(--spider-red);
+}
+
+.hero-title {
+  font-family: var(--font-comic);
+  font-size: 4.5rem;
+  line-height: 1.05;
+  color: var(--text-main);
+  text-shadow: 3px 3px 0 var(--spider-red), 5px 5px 0 var(--spider-blue);
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 13px 26px;
+  font-weight: 700;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: var(--spider-red);
+  color: var(--text-main);
+  box-shadow: 0 4px 15px rgba(230, 36, 41, 0.4);
+}
+
+.btn-primary:hover {
+  background-color: var(--spider-red-glow);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 59, 63, 0.5);
+}
+
+.btn-secondary {
+  background-color: rgba(21, 27, 40, 0.85);
+  border: 1.5px solid var(--border-color);
+  color: var(--text-main);
+}
+
+.btn-secondary:hover {
+  border-color: var(--spider-blue);
+  background-color: var(--bg-card);
+  transform: translateY(-3px);
+}
+
+/* --- Títulos Generales --- */
+.section-title {
+  font-family: var(--font-comic);
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 45px;
+  color: var(--text-main);
+  letter-spacing: 2px;
+}
+
+.section-title.text-left {
+  text-align: left;
+}
+
+/* --- Tarjetas de Enlace --- */
+.quick-nav-section {
+  padding: 85px 0;
+  background-color: var(--bg-surface);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.nav-card {
+  background-color: var(--bg-card);
+  padding: 30px 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  border: 1px solid var(--border-color);
+  border-top: 4px solid var(--spider-red);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-card:hover {
+  transform: translateY(-6px);
+  border-top-color: var(--spider-blue);
+  border-color: var(--spider-blue);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.card-tag {
+  font-family: var(--font-comic);
+  font-size: 1.8rem;
+  color: var(--spider-red);
+  margin-bottom: 6px;
+}
+
+.nav-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: var(--text-main);
+}
+
+.nav-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 22px;
+}
+
+.card-link {
+  font-weight: 700;
+  color: var(--spider-red-glow);
+  font-size: 0.9rem;
+}
+
+/* --- Sección Historia --- */
+.about-section {
+  padding: 90px 0;
+  background-color: var(--bg-main);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 50px;
+}
+
+.about-text p {
+  margin-bottom: 18px;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.about-text .highlight {
+  font-size: 1.15rem;
+  color: var(--text-main);
+}
+
+.about-text strong {
+  color: var(--spider-red-glow);
+}
+
+.about-text h3 {
+  font-size: 1.5rem;
+  color: var(--text-main);
+  margin: 28px 0 12px 0;
+  font-family: var(--font-comic);
+  letter-spacing: 1px;
+}
+
+.stat-card {
+  background-color: var(--bg-card);
+  padding: 26px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--spider-blue);
+}
+
+.stat-card h4 {
+  font-size: 1.25rem;
+  margin-bottom: 14px;
+  color: var(--text-main);
+  font-family: var(--font-comic);
+  letter-spacing: 1px;
+}
+
+.stat-card ul {
+  list-style: none;
+}
+
+.stat-card li {
+  margin-bottom: 10px;
+  padding-left: 24px;
+  position: relative;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.stat-card li::before {
+  content: '🕷';
+  position: absolute;
+  left: 0;
+}
+
+.quote-card {
+  background-color: rgba(28, 36, 54, 0.6);
+  border: 1.5px dashed var(--spider-red);
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.quote-card blockquote {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--text-main);
+  margin-bottom: 10px;
+}
+
+.quote-card cite {
+  color: var(--spider-red-glow);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+/* --- Footer --- */
+.footer {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: var(--bg-surface);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border-color);
+}
+
+@media (max-width: 860px) {
+  .hero-title {
+    font-size: 3.2rem;
+  }
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* --- Sección: Relaciones y Aliados --- */
+.relations-section {
+  padding: 85px 0;
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.relations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.relation-card {
+  background-color: var(--bg-card);
+  padding: 26px 22px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--spider-red);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.relation-card:hover {
+  transform: translateY(-5px);
+  border-left-color: var(--spider-red-glow);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.4);
+}
+
+.relation-header {
+  margin-bottom: 12px;
+}
+
+.relation-card h3 {
+  font-family: var(--font-comic);
+  font-size: 1.45rem;
+  color: var(--text-main);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.relation-role {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--spider-blue);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.relation-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.relation-card em {
+  color: var(--text-main);
+  font-style: italic;
+}
