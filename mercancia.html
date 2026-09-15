@@ -96,49 +96,5 @@
     </div>
 </div>
 
-<script>
-
-const botonesAgregar = document.querySelectorAll('.agregar-btn');
-let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-botonesAgregar.forEach(boton => {
-    boton.addEventListener('click', (e) => {
-        const elementoProducto = e.target.closest('.grid-item');
-        if (!elementoProducto) return;
-
-        const nombre = elementoProducto.querySelector('.Nombre_Producto').textContent.trim();
-        const textoPrecio = elementoProducto.querySelector('.precio').textContent.trim();
-        const precio = parseFloat(textoPrecio.replace('$', '').replace(',', ''));
-        const imagen = elementoProducto.querySelector('.grid-imagen img').src;
-
-        if (nombre && !isNaN(precio)) {
-            agregarAlCarrito(nombre, precio, imagen);
-            guardarCarrito();
-        } else {
-            console.error('Error: Datos del producto incompletos o mal formateados.');
-        }
-    });
-});
-
-function agregarAlCarrito(nombre, precio, imagen) {
-    const id = Date.now();
-    const productoExistente = carrito.find(item => item.nombre === nombre);
-
-    if (productoExistente) {
-        productoExistente.cantidad += 1;
-    } else {
-        carrito.push({ id, nombre, precio, cantidad: 1, imagen });
-    }
-
-    console.log(carrito);
-}
-
-function guardarCarrito() {
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-}
-
-
-</script>
-
 </body>
 </html>
